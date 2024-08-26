@@ -23,11 +23,18 @@
         return `https://www.youtube.com/embed/${videoId}`;
     }
 
-    function openInIframe(url) {
-        const iframe = document.getElementById('videoPlayer');
-        const embedUrl = convertToEmbedUrl(url);
-        console.log('Embed URL:', embedUrl);
-        iframe.src = embedUrl;
-    }
+    function openInIframe(url, listItem) {
+    const iframe = document.getElementById('videoPlayer');
+    const embedUrl = convertToEmbedUrl(url);
+    console.log('Embed URL: ', embedUrl);
+    
+    iframe.src = embedUrl;
+    
+    const listItemElement = listItem.closest('.requestItem');
+    console.log('List item element:', listItemElement);
+    listItemElement.classList.add('played');
+    console.log('Class added to list item:', listItemElement.classList.contains('played'));
+}
+
 </script>
 </html>

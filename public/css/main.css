@@ -262,7 +262,17 @@ body {
     content: '➔';
     color: gold;
     text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 15px #00ffcc, 0 0 20px #00ffcc;
-}
+ }
+
+ .requestItem.played {
+  background-color: #444;
+  color: #999;
+  text-decoration: line-through;
+ }
+
+ .requestItem.played a {
+  color: #666;
+ }
 
   .songInfo{
   display: flex;

@@ -22,10 +22,6 @@ const songSchema = new mongoose.Schema({
     type: Date, 
     default: Date.now
   },
-  played: { 
-    type: Boolean, 
-    default: false 
-  }   
 });
 
 const Song = mongoose.model('Song', songSchema);
