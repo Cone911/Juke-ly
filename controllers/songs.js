@@ -69,6 +69,18 @@ router.put('/:songId', ensureLoggedIn, async (req, res) => {
     }
 });
 
+// PUT /songs/:songId/played
+router.put('/:songId/played', ensureLoggedIn, async (req, res) => {
+    try {
+        const song = await Song.findById(req.params.songId);
+        song.played = true;
+        await song.save();
+
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 // GET /:songId - SHOW functionality
 router.get('/:songId', ensureLoggedIn, async (req, res) => {    
     const song = await Song.findById(req.params.songId);
