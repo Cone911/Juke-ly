@@ -2,4 +2,32 @@
   </body>
   <!-- Script that renders my icons from FontAwesome.com -->
   <script src="https://kit.fontawesome.com/c74386571e.js" crossorigin="anonymous"></script>
+  <script>
+
+    function extractVideoId(url) {
+    let videoId = '';
+
+    if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1];
+        console.log('Share URL detected, video ID:', videoId);
+    } else if (url.includes('youtube.com/watch')) {
+        const parts = url.split('v=');
+        videoId = parts[1];
+        console.log('Watch URL detected, video ID:', videoId);
+    }
+
+    return videoId;
+}
+    function convertToEmbedUrl(url) {
+        const videoId = extractVideoId(url);
+        return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    function openInIframe(url) {
+        const iframe = document.getElementById('videoPlayer');
+        const embedUrl = convertToEmbedUrl(url);
+        console.log('Embed URL:', embedUrl);
+        iframe.src = embedUrl;
+    }
+</script>
 </html>

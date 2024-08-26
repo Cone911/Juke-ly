@@ -255,6 +255,7 @@ body {
     margin-bottom: 12px;
     padding: 5px;
     border-bottom: dotted 4px palevioletred;
+    background-color: rgba(98, 2, 2, 0.5);
   }
 
   .requestItem::marker {

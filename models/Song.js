@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const songSchema = new mongoose.Schema({
   title: { 
     type: String, 
-    required: true },
+    required: true 
+  },
   artist: { 
     type: String,
-    required: true },
+    required: true 
+  },
   youTubeURL: { 
     type: String,
-    required: true },
+    required: true 
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -17,7 +20,12 @@ const songSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date, 
-    default: Date.now }
+    default: Date.now
+  },
+  played: { 
+    type: Boolean, 
+    default: false 
+  }   
 });
 
 const Song = mongoose.model('Song', songSchema);
