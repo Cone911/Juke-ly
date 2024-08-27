@@ -4,36 +4,39 @@
 
     <!-- First Div: Song Search Form -->
     <div class="search-container animate__animated animate__fadeInRight">
-        <h1>ADD A SONG</h1>
-        <% if (user) { %>
-            <form class="Form" action="/songs" method="POST">
-                <fieldset>
-                    <legend><em>YOUR REQUEST:</em></legend>
-                    <div class="inputBox">
-                        <input type="text" id="title" name="title" size="30" required>
-                        <label for="title">Song Title:</label>
-                    </div>
+        <div class="queue-title">
+            <h1>ADD A SONG</h1>
+        </div>
+            <% if (user) { %>
+                <form class="Form" action="/songs" method="POST">
+                    <fieldset>
+                        <legend><em>ADD YOUR REQUEST:</em></legend>
+                        <div class="inputBox">
+                            <input type="text" id="title" name="title" size="30" required>
+                            <label for="title">Song Title:</label>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <input type="text" id="artist" name="artist" size="30" required>
+                            <label for="artist">Artist:</label>
+                        </div>
                     
-                    <div class="inputBox">
-                        <input type="text" id="artist" name="artist" size="30" required>
-                        <label for="artist">Artist:</label>
+                        <div class="inputBox">
+                            <input type="url" id="youTubeURL" name="youTubeURL" size="30" required
+                            pattern="https?://(youtu\.be/|www\.youtube\.com/watch\?v=).*" 
+                            title="Please enter a valid YouTube URL">
+                            <label for="youTubeURL">YouTube URL:</label>
+                        </div>
+                    </fieldset>
+                        
+                    <div>
+                        <button type="submit">Add Song</button>
                     </div>
-                
-                    <div class="inputBox">
-                        <input type="url" id="youTubeURL" name="youTubeURL" size="30" required
-                        pattern="https?://(youtu\.be/|www\.youtube\.com/watch\?v=).*" 
-                        title="Please enter a valid YouTube URL">
-                        <label for="youTubeURL">YouTube URL:</label>
-                    </div>
-                </fieldset>
-                    
-                <div>
-                    <button type="submit">Add Song</button>
-                </div>
-            </form>
+                </form>
         <% } else { %>
-            <!-- Display sign-up/login invitation if the user is not logged in -->
-            <p>Please <a href="/auth/login">log in</a> or <a href="/auth/sign-up">sign up</a> to add a song to the queue.</p>
+            <div class="message">
+                <p>Please <a href="/auth/login">log in</a> or <a href="/auth/sign-up">sign up</a> to add a song to the queue.</p>
+            </div>
         <% } %>
     </div>
 
@@ -86,7 +89,8 @@
     <!-- Third Div: Media Player -->
     <div class="mediaPlayer animate__animated animate__fadeInLeft">
         <h1>NOW PLAYING</h1>
-        <iframe id="videoPlayer"></iframe>
+        <!-- <iframe id="videoPlayer"></iframe> -->
+        <div id="videoPlayer"></div>
     </div>
 </div>
 
