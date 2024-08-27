@@ -31,9 +31,15 @@
     
     iframe.src = embedUrl;
     
+    //Stop all vinyls rotation.
+    const allVinylElements = document.querySelectorAll('.plate');
+    allVinylElements.forEach((vinyl) => {
+        vinyl.classList.remove('rotation');
+    } )
+    
+    // Rotating vinyl for the playing song + add class 'played'.
     const requestItemElement = cardElement.closest('.requestItem');
     const vinylElement = requestItemElement.querySelector('.plate');
-
     requestItemElement.classList.add('played');
     vinylElement.classList.add('rotation');
 
