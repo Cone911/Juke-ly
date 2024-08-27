@@ -3,10 +3,9 @@
 <div class="main-container">
 
     <!-- First Div: Song Search Form -->
-    <div class="search-container">
+    <div class="search-container animate__animated animate__fadeInRight">
         <h1>ADD A SONG</h1>
         <% if (user) { %>
-            <!-- Display the form if the user is logged in -->
             <form class="Form" action="/songs" method="POST">
                 <fieldset>
                     <legend><em>YOUR REQUEST:</em></legend>
@@ -79,7 +78,7 @@
     </div>
 
     <!-- Third Div: Media Player -->
-    <div class="mediaPlayer">
+    <div class="mediaPlayer animate__animated animate__fadeInLeft">
         <h1>NOW PLAYING</h1>
         <iframe id="videoPlayer"></iframe>
     </div>

@@ -413,7 +413,6 @@ iframe {
     width: 35%;
     overflow: hidden;
   }
-  
 
   .Form {
     display: grid;
@@ -438,8 +437,8 @@ iframe {
 
   .inputBox > label{
     position: absolute;
-    left: 45px;
-    padding: 10px;
+    left: 8%;
+    padding: 12px;
     pointer-events: none;
     font-size: 1.2em;
     color: rgba(107, 8, 105, 0.653);
