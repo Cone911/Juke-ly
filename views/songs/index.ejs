@@ -46,27 +46,28 @@
             <h1>There are no songs in the queue.</h1>
         <% } else { %>
         <div class="request-card">
-            <!-- <ul class="requestList"> -->
                 <% songs.forEach(song => { %>
-                    <div class="requestItem">
-                    <!-- <li class="requestItem"> -->
+                    <div class="requestItem <% if (song.played) { %> played <% } %>">
                         <%- include('../partials/recordIcon.ejs') %>
                         <div class="songInformation">
-                        <!-- Only the owner of a song can have access to edit a song: -->
+
                         <% if (song.user && user && song.user._id.equals(user._id)) { %> 
                             <a href="/songs/<%= song._id %>"><%= song.title %></a>
                         <% } else { %>
                             <%= song.title %>
                         <% } %>
+
                         by <%= song.artist %><br>
+
                         <em>Requested by: <%= song.user ? song.user.name : 'Deleted User' %></em> &nbsp; &nbsp; | &nbsp; &nbsp; 
-                        <a href="#" onclick="openInIframe('<%= song.youTubeURL %>', this)">▶ Play</a> &nbsp; &nbsp; | &nbsp; &nbsp;
-                        <!-- Only the owner of a song can delete a song in the queue: -->
+                        <a href="#" onclick="openInIframe('<%= song.youTubeURL %>', this, '<%= song._id %>')">▶ Play</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+            
                         <% if (song.user && user && song.user._id.equals(user._id)) { %>
                             <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" style="display:inline;">
                                 <button class="smallBtn" type="submit">❌ DELETE</button> 
                             </form>
                         <% } %>
+
                         </div>
                     </div>    
                     <!-- </li> -->
