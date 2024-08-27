@@ -6,66 +6,66 @@
 
   //YouTube API Integration.
 
-    let player;
+  let player;
+let isPlayerReady = false;
 
-    function onYouTubeIframeAPIReady() {
+function onPlayerReady(event) {
+    console.log('YouTube Player is ready.');
+    isPlayerReady = true;
+}
+
+function extractVideoId(url) {
+    let videoId = '';
+
+    if (url.includes('youtu.be/')) {
+        videoId = url.split('youtu.be/')[1].split('?')[0];
+        console.log('Share URL detected, video ID:', videoId);
+    } else if (url.includes('youtube.com/watch')) {
+        const parts = url.split('v=');
+        videoId = parts[1].split('&')[0];
+        console.log('Watch URL detected, video ID:', videoId);
+    }
+
+    return videoId;
+}
+
+function openInIframe(url, cardElement, songId) {
+    const videoId = extractVideoId(url);
+    console.log('Extracted Video ID: ', videoId);
+
+    if (!isPlayerReady) {
+        // Initialize the player only when the user interacts with the page (e.g., clicks play)
         player = new YT.Player('videoPlayer', {
             events: {
-                'onReady': onPlayerReady
+                'onReady': () => {
+                    onPlayerReady();
+                    player.loadVideoById(videoId);  // Load video when player is ready
+                }
             }
         });
+    } else {
+        // Load the video directly if the player is ready
+        player.loadVideoById(videoId);
     }
 
-    function onPlayerReady(event) {
-    console.log('YouTube Player is ready.');
-    }
+    // Remove rotation from all vinyls
+    const allVinylElements = document.querySelectorAll('.plate');
+    allVinylElements.forEach((vinyl) => {
+        vinyl.classList.remove('rotation');
+    });
 
-    function extractVideoId(url) {
-        let videoId = '';
+    // Rotate vinyl for the playing song + add 'played' class
+    const requestItemElement = cardElement.closest('.requestItem');
+    const vinylElement = requestItemElement.querySelector('.plate');
+    requestItemElement.classList.add('played');
+    vinylElement.classList.add('rotation');
 
-            if (url.includes('youtu.be/')) {
-                videoId = url.split('youtu.be/')[1].split('?')[0];
-                console.log('Share URL detected, video ID:', videoId);
-            } else if (url.includes('youtube.com/watch')) {
-                const parts = url.split('v=');
-                videoId = parts[1].split('&')[0];
-                console.log('Watch URL detected, video ID:', videoId);
-            }
+    // Update song in database as played
+    fetch(`/songs/${songId}/played`, { method: 'PUT' })
+        .then(res => res.json())
+        .then(data => console.log("The server said:", data));
+}
 
-        return videoId; 
-    }
-
-    // function convertToEmbedUrl(url) {
-    //     const videoId = extractVideoId(url);
-    //     return `https://www.youtube.com/embed/${videoId}`;
-    // }
-
-    function openInIframe(url, cardElement, songId) {
-    // const iframe = document.getElementById('videoPlayer');
-    // const embedUrl = convertToEmbedUrl(url);
-    //    iframe.src = embedUrl;
-
-        const videoId = extractVideoId(url);
-        console.log('Extracted Video ID: ', videoId);
-
-            // Load the video by ID using the YouTube IFrame API
-            player.loadVideoById(videoId);
-        
-        const allVinylElements = document.querySelectorAll('.plate');
-        allVinylElements.forEach((vinyl) => {
-            vinyl.classList.remove('rotation');
-        } )
-        
-        // Rotating vinyl for the playing song + add class 'played'.
-        const requestItemElement = cardElement.closest('.requestItem');
-        const vinylElement = requestItemElement.querySelector('.plate');
-        requestItemElement.classList.add('played');
-        vinylElement.classList.add('rotation');
-
-        fetch(`/songs/${songId}/played`, { method: 'PUT' })
-            .then(res => res.json())
-            .then(data => console.log("The server said:", data));
-    }
 
 </script>
 </html>
