@@ -40,13 +40,19 @@
 
     <!-- Second Div: Queue Container -->
     <div class="queue-container animate__animated animate__flipInY">
-        <h1>QUEUE</h1>
+        <div class="queue-title">
+            <h1>QUEUE</h1>
+        </div>
         <% if (songs.length === 0) { %>
             <h1>There are no songs in the queue.</h1>
-        <% } else { %>    
-            <ul class="requestList">
+        <% } else { %>
+        <div class="request-card">
+            <!-- <ul class="requestList"> -->
                 <% songs.forEach(song => { %>
-                    <li class="requestItem">
+                    <div class="requestItem">
+                    <!-- <li class="requestItem"> -->
+                        <%- include('../partials/recordIcon.ejs') %>
+                        <div class="songInformation">
                         <!-- Only the owner of a song can have access to edit a song: -->
                         <% if (song.user && user && song.user._id.equals(user._id)) { %> 
                             <a href="/songs/<%= song._id %>"><%= song.title %></a>
@@ -62,9 +68,12 @@
                                 <button class="smallBtn" type="submit">❌ DELETE</button> 
                             </form>
                         <% } %>
-                    </li>
+                        </div>
+                    </div>    
+                    <!-- </li> -->
                 <% }) %>
-            </ul>
+            <!-- </ul> -->
+        </div>        
         <% } %>
         <a class="backLink" href="/songs/new" style="text-decoration: none;">➕ Request a New Song</a>
     </div>

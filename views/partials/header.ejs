@@ -12,7 +12,7 @@
 </head>
 <body>
       <% if (user) { %>
-        <div class="top-container">
+      <div class="top-container">
           <div class="leftSideNav"> 
             <h1 class="logo">JUKE.LY</h1> 
             <i class="fa-regular fa-circle-user fa-spin fa-2xl"></i> <p><%= user.name %></p>
@@ -26,10 +26,8 @@
               </ul>
           </nav>
       </div>
-        
       <% } else { %>
-        
-        <div class="top-container">
+      <div class="top-container">
           <div class="leftSideNav"> 
             <h1 class="logo">JUKE.LY</h1> 
           </div>
@@ -40,7 +38,8 @@
                   <li class="navItem"><a class="navLink" href="/auth/login">Log In</a></li>
               </ul>
           </nav>
-        </div>
-        
+      </div>
       <% } %>
+     
+
 

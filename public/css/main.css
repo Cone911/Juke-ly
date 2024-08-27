@@ -15,12 +15,13 @@
 }
 
 body {
-    margin-top:0;
+    margin:0;
     padding:0;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; */
     height:100vh;
     background:#112c38;
     font-family: "Cocogoose", sans-serif;
@@ -100,28 +101,6 @@ body {
     justify-content: space-between;
   }
 
-  
-  .top-container{
-    width: 100%;
-    height: 10vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .leftSideNav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-
   h1.logo{
     font-family: "Honk", system-ui;
     font-optical-sizing: auto;
@@ -137,6 +116,32 @@ body {
     margin-left: 20px;
     margin-right: 20px;
 
+  }
+
+  /* -------------- */
+  /*     NAV BAR    */
+  /* -------------- */
+
+  .top-container{
+    width: 100%;
+    height: 8vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 200;
+  }
+
+  .leftSideNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
   }
 
   .navbar{
@@ -214,55 +219,85 @@ body {
     transform:scaleX(1);
   }
 
+  /* -------====-------- */
+  /* MAIN APP CONTAINER */
+  /* -------====------- */
+
   .main-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
-    padding: 20px;
+    flex-wrap: wrap;
+    padding: 0;
     width: 100%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
-  .search-container, .queue-container, .mediaPlayer {
-    width: 30%;
-    padding: 10px;
+  /* --------------- */
+  /* ADD A SONG CARD */
+  /* --------------- */
+
+  .search-container {
+    width: 25%;
+    padding: 0;
     background-color: rgba(80, 80, 80, 0.55);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border: 2px solid rgba(255, 255, 255, 0.3); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
  }
 
-  .cardShow{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.2);
+
+  /* -------------- */
+  /*   QUEUE CARD   */
+  /* -------------- */
+ 
+  .queue-title{
+    position: sticky;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+
+ .queue-container{
+    width: 33%;
+    max-height: 60vh;
+    padding: 0;
+    background-color: rgba(80, 80, 80, 0.55);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    border: 1px solid rgba(142, 142, 142, 0.3); 
-    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
-    width: 45%;
+    overflow-y: scroll;
+ }
+
+  .request-card{
+    padding: 2%;
   }
 
   .requestList {
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
     overflow-y: auto;
-    overflow-x: hidden;
   }
 
   .requestItem {
-    margin-bottom: 12px;
-    padding: 5px;
+    display: flex;
+    margin-bottom: 15px;
+    padding: 12px;
+    gap: 12px;
+    font-size: 2vh;
+    width: 100%;
+
     border-bottom: dotted 4px palevioletred;
     background-color: rgba(98, 2, 2, 0.5);
   }
-
-  .requestItem::marker {
-    content: '➔';
-    color: gold;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 15px #00ffcc, 0 0 20px #00ffcc;
- }
 
  .requestItem.played {
   background-color: #444;
@@ -273,6 +308,55 @@ body {
  .requestItem.played a {
   color: #666;
  }
+
+  /* --------------------- */
+  /*   MEDIA PLAYER CARD   */
+  /* --------------------- */
+
+ .mediaPlayer{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 25%;
+  height: 55%;
+  padding: 0;
+  background-color: rgba(80, 80, 80, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  
+  margin: 0;
+}
+
+#videoPlayer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+iframe {
+  border-radius: 12px;
+}
+
+  /* -------------- */
+  /*    SHOW.ejs    */
+  /* -------------- */
+
+ .cardShow{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(142, 142, 142, 0.3); 
+  padding: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+  width: 45%;
+}
 
   .songInfo{
   display: flex;
@@ -310,6 +394,11 @@ body {
     font-family: "Cocogoose", sans-serif;
     padding: 0 5px 0 5px; 
   }
+
+
+  /* --------------------- */
+  /*    SIGN UP & LOGIN    */
+  /* --------------------- */
   
   .authCard{
     display: flex;
@@ -324,23 +413,27 @@ body {
     width: 35%;
     overflow: hidden;
   }
+  
 
   .Form {
     display: grid;
+    overflow: hidden;
   }
 
   .inputBox{
-    padding: 10px;
+    margin: 15px;
     border-radius: 5px;
+    width: 60%;
   }
 
   .inputBox > input{
-    height: 38px;
+    height: 3.25vh;
     padding: 10px;
     border-radius: 8px;
     box-shadow: inset -3px -3px 3px rgba(0, 0, 0, 0.3),
     inset 3px 3px 2px rgba(0, 0, 0, 0.6);
-    cursor: pointer;
+    cursor: auto;
+    width: 100%;
   }
 
   .inputBox > label{
@@ -348,7 +441,7 @@ body {
     left: 45px;
     padding: 10px;
     pointer-events: none;
-    font-size: 1em;
+    font-size: 1.2em;
     color: rgba(107, 8, 105, 0.653);
     transition: 0.5s;
   }
@@ -366,18 +459,108 @@ body {
     letter-spacing: 0.2em;
     border-radius: 2px;
   }
+  
+ /*----------------- */
+ /* UI Verse Icons: */
+ /*----------------- */
+ 
+ .container {
+  width: 74.375px;
+  height: 74.375px;
+  background-color: #b31fa6;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 8px 0 #1d1d1dab;
+}
 
-  .mediaPlayer{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    overflow: hidden;
-    height: 100%;
+.plate {
+  width: fit-content;
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
+  border-radius: 100%;
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plate .black {
+  width: 63.75px;
+  height: 63.75px;
+  background-color: #770303;
+}
+
+.rotation {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
   }
 
-  #videoPlayer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: none;
+  to {
+    transform: rotate(359deg);
   }
+}
+
+.plate .white {
+  width: 29.75px;
+  height: 29.75px;
+  background-color: #ffffff;
+}
+
+.plate .center {
+  width: 8.5px;
+  height: 8.5px;
+  background-color: #ffffff;
+}
+
+.plate .border {
+  width: 47.175px;
+  height: 47.175px;
+  border-top: 2px solid #F3DEBA;
+  border-bottom: 2px solid #F3DEBA;
+  border-left: 2px solid #675D50;
+  border-right: 2px solid #675D50;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 4px;
+  margin-right: 4px;
+  rotate: -45deg;
+}
+
+.player .circ {
+  width: 10.625px;
+  height: 10.625px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.player .rect {
+  width: 4.25px;
+  height: 23.375px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3px;
+}

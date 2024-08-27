@@ -23,17 +23,18 @@
         return `https://www.youtube.com/embed/${videoId}`;
     }
 
-    function openInIframe(url, listItem) {
+    function openInIframe(url, cardElement) {
     const iframe = document.getElementById('videoPlayer');
     const embedUrl = convertToEmbedUrl(url);
     console.log('Embed URL: ', embedUrl);
     
     iframe.src = embedUrl;
     
-    const listItemElement = listItem.closest('.requestItem');
-    console.log('List item element:', listItemElement);
-    listItemElement.classList.add('played');
-    console.log('Class added to list item:', listItemElement.classList.contains('played'));
+    const requestItemElement = cardElement.closest('.requestItem');
+    const vinylElement = requestItemElement.querySelector('.plate');
+
+    requestItemElement.classList.add('played');
+    vinylElement.classList.add('rotation');
 }
 
 </script>
