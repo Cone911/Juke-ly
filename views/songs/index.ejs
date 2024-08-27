@@ -75,7 +75,12 @@
             <!-- </ul> -->
         </div>        
         <% } %>
-        <a class="backLink" href="/songs/new" style="text-decoration: none;">➕ Request a New Song</a>
+        <div class="action-links">
+            <a class="backLink" href="/songs/new" style="text-decoration: none;">➕ Request a New Song</a>
+            <form action="/songs/reset-played?_method=PUT" method="POST" style="display:inline;">
+                <button type="submit" class="resetLink">🏳 Reset Played</button>
+            </form>
+        </div>        
     </div>
 
     <!-- Third Div: Media Player -->

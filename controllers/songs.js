@@ -52,6 +52,16 @@ router.get('/:songId/edit', ensureLoggedIn, async (req, res) => {
     }
 });
 
+// PUT /songs/reset-played - Reset the 'played' status of all songs
+router.put('/reset-played', async (req, res) => {
+    try {
+        await Song.updateMany({}, { played: false });
+        res.redirect('/songs');
+    } catch (error) {
+        console.error('Error resetting played status:', error);
+        res.send('Server error');
+    }
+});
 
 // PUT /songs/:songId - Handle the edit form submission
 router.put('/:songId', ensureLoggedIn, async (req, res) => {
@@ -78,6 +88,8 @@ router.put('/:songId/played', ensureLoggedIn, async (req, res) => {
     }
 });
 
+
+
 // GET /:songId - SHOW functionality
 router.get('/:songId', ensureLoggedIn, async (req, res) => {    
     const song = await Song.findById(req.params.songId);
@@ -88,6 +100,7 @@ router.get('/:songId', ensureLoggedIn, async (req, res) => {
             res.send('What are you doing here? You are not authorized to view this song! 😡');
         }
 });
+
 
 
 // DELETE song functinality.
