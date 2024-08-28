@@ -66,6 +66,30 @@ function openInIframe(url, cardElement, songId) {
         .then(data => console.log("The server said:", data));
 }
 
+function playVideo() {
+    player.playVideo();
+}
+
+function pauseVideo() {
+    player.pauseVideo();
+}
+
+function toggleMute() {
+    if (player.isMuted()) {
+        player.unMute();
+    
+        document.getElementById('mute-button').classList.remove('fa-volume-xmark');
+        document.getElementById('mute-button').classList.add('fa-volume-high');
+    } else {
+        player.mute();
+        console.log("Video muted.");
+        
+        document.getElementById('mute-button').classList.remove('fa-volume-high');
+        document.getElementById('mute-button').classList.add('fa-volume-xmark');
+    }
+}
+
+
 
 </script>
 </html>

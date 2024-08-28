@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="main-container">
+<div class="jukely-main-container">
 
     <!-- First Div: Song Search Form -->
     <div class="search-container animate__animated animate__fadeInRight">
@@ -29,7 +29,7 @@
                         </div>
                     </fieldset>
                         
-                    <div>
+                    <div class="button-container">
                         <button type="submit">Add Song</button>
                     </div>
                 </form>
@@ -55,15 +55,15 @@
                         <div class="songInformation">
 
                         <% if (song.user && user && song.user._id.equals(user._id)) { %> 
-                            <a href="/songs/<%= song._id %>"><%= song.title %></a>
+                            <a style="display: block; text-align: left;" href="/songs/<%= song._id %>"><%= song.title %></a>
                         <% } else { %>
-                            <%= song.title %>
+                            <span style="display: block; text-align: left;""><%= song.title %></span>
                         <% } %>
 
-                        by <%= song.artist %><br>
+                         <span style="display: block; text-align: left;"">by: <%= song.artist %></span>
 
-                        <em>Requested by: <%= song.user ? song.user.name : 'Deleted User' %></em> &nbsp; &nbsp; | &nbsp; &nbsp; 
-                        <a href="#" onclick="openInIframe('<%= song.youTubeURL %>', this, '<%= song._id %>')">▶ Play</a> &nbsp; &nbsp; | &nbsp; &nbsp;
+                         <span style="display: block; text-align: left;""><em>Requested by: <%= song.user ? song.user.name : 'Deleted User' %></em></span> 
+                        <a href="#" onclick="openInIframe('<%= song.youTubeURL %>', this, '<%= song._id %>')">▶ Play</a> &nbsp; | &nbsp;
             
                         <% if (song.user && user && song.user._id.equals(user._id)) { %>
                             <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" style="display:inline;">
@@ -92,6 +92,11 @@
         <!-- <iframe id="videoPlayer"></iframe> -->
         <div id="videoPlayer"></div>
     </div>
+
+    <!-- Fourth Div: Media Controls -->
+    <%- include('../partials/mediaControls.ejs') %>
+
+
 </div>
 
 <%- include('../partials/footer.ejs') %>
