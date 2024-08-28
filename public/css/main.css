@@ -41,7 +41,7 @@ body {
     align-items: center;
     height: 4vh;
     font-family: "Summer Favourite", sans-serif;
-    font-size: 5vh;
+    font-size: 4vh;
     font-weight: lighter;
     color: white;
     text-align: center;
@@ -226,7 +226,7 @@ body {
   .main-container {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     padding: 0;
     width: 100%;
@@ -499,11 +499,60 @@ iframe {
   }
 
 
-  /* --------------------- */
-  /*    SIGN UP & LOGIN    */
-  /* --------------------- */
+  /* ---------------------------- */
+  /*    HOME, SIGN UP & LOGIN    */
+  /* --------------------------- */
   
-  .authCard{
+  .landingPageCard {
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "features logo"
+        "button logo";
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    background-image: url('https://i.imgur.com/wG8eufY.gif');
+    background-color: rgba(255, 255, 255, 0.2);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    padding: 1%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+    width: 80%;
+    overflow: hidden;
+  }
+
+  .main-title {
+      grid-area: title;
+      font-size: 5vh;
+  }
+
+  .juke-ly-features {
+      grid-area: features;
+  }
+
+  .juke-ly-logo-container {
+      grid-area: logo;
+      margin: 0;
+      padding: 0;
+  }
+
+  .get-started-button {
+      grid-area: button;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .juke-ly-logo {
+      width: 35vh;
+  }
+
+
+  .authCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -523,7 +572,7 @@ iframe {
   }
 
   .inputBox{
-    margin: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
     width: 60%;
   }

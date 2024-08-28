@@ -5,14 +5,18 @@
 
     <h1>Log In</h1>
       <form class="Form" action="/auth/login" method="POST">
-        <div class="inputBox">
-          <input type="email" required name="email" id="email" />
-          <label for="email">Email:</label>
-        </div>
-        <div class="inputBox">
-          <input type="password" required name="password" id="password" />
-          <label for="password">Password:</label>
-        </div>
+      <fieldset>
+        <legend>WELCOME BACK!</legend>
+          <br>
+          <div class="inputBox">
+              <input type="email" required name="email" id="email" />
+              <label for="email">Email:</label>
+          </div>
+          <div class="inputBox">
+              <input type="password" required name="password" id="password" />
+              <label for="password">Password:</label>
+          </div>
+      </fieldset>
         <button type="submit">Log In</button>
       </form>
 

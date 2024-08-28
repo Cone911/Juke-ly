@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
         res.render('songs/index.ejs', { songs: allSongs, user: req.user });
 });
 
-
 // Return view (form) to add a new song request.
 router.get('/new', ensureLoggedIn, (req, res) => {
     res.render('songs/new.ejs');
@@ -19,6 +18,7 @@ router.get('/new', ensureLoggedIn, (req, res) => {
 
 // CREATE Functionality.
 router.post('/', ensureLoggedIn, async (req, res) => {
+    
     try {
         const newSong = new Song({
             title: req.body.title,
@@ -88,8 +88,6 @@ router.put('/:songId/played', ensureLoggedIn, async (req, res) => {
     }
 });
 
-
-
 // GET /:songId - SHOW functionality
 router.get('/:songId', ensureLoggedIn, async (req, res) => {    
     const song = await Song.findById(req.params.songId);
@@ -100,8 +98,6 @@ router.get('/:songId', ensureLoggedIn, async (req, res) => {
             res.send('What are you doing here? You are not authorized to view this song! 😡');
         }
 });
-
-
 
 // DELETE song functinality.
 router.delete('/:songId', ensureLoggedIn, async (req, res) => {
@@ -118,6 +114,5 @@ router.delete('/:songId', ensureLoggedIn, async (req, res) => {
         res.send('Oops! There has been an error deleting song. Please refresh and try again 🙏.');
     }
 });
-
 
 module.exports = router;

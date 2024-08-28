@@ -5,28 +5,38 @@
 
     <h1>Sign Up!</h1>
     <form class="Form" action="/auth/sign-up" method="POST">
-      <div class="inputBox">
-        <input type="email" required name="email" id="email">
-        <label for="email">Email:</label>
-      </div>
+      <fieldset>
+        <br>
+        <legend>YOUR INFO:</legend>
+        <div class="inputBox">
+          <input type="email" required name="email" id="email">
+          <label for="email">Email:</label>
+        </div>
 
-      <div class="inputBox">
-        <input type="text" required name="name" id="name">
-        <label for="name">Name or Nickname:</label>
-      </div>
-      
-      <div class="inputBox">
-        <input type="password" required name="password" id="password">
-        <label for="password">Password:</label>
-      </div>
+        <div class="inputBox">
+          <input type="text" required name="name" id="name">
+          <label for="name">Name or Nickname:</label>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset>
+     <br> 
+      <legend>YOUR JUKE.LY PASSWORD:</legend>
+        <div class="inputBox">
+          <input type="password" required name="password" id="password">
+          <label for="password">Password:</label>
+        </div>
 
-      <div class="inputBox">
-        <input type="password" required name="confirmPassword" id="confirmPassword">
-        <label for="confirmPassword">Confirm Password:</label>
-      </div>
+        <div class="inputBox">
+          <input type="password" required name="confirmPassword" id="confirmPassword">
+          <label for="confirmPassword">Confirm Password:</label>
+        </div>
+    </fieldset>
+
       <button type="submit">Sign up</button>
     </form>
 
   </div>
 </div>
+
 <%- include('../partials/footer.ejs') %>
