@@ -1,20 +1,21 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header.ejs') %>
+<div class="main-container">
+    <div class="cardShow animate__animated animate__flipInY">
+        <div class="songInfo">
+            <h2><%= song.title %></h2>
+            <p>by <%= song.artist %></p>
+        </div>
+        <div class="songActions">
+            <p><a href="<%= song.youTubeURL %>" target="_blank" style="text-decoration: none;"> ▶ Play on YouTube</a></p>
 
-<div class="cardShow animate__animated animate__flipInY">
-    <div class="songInfo">
-        <h2><%= song.title %></h2>
-        <p>by <%= song.artist %></p>
+            <a href="/songs/<%= song._id %>/edit">Edit this Song</a>
+            <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" style="display:block;">
+            <button type="submit">❌ Delete</button>
+            </form>
+        </div>
+        <a href="/songs">Cancel</a>
     </div>
-    <div class="songActions">
-        <p><a href="<%= song.youTubeURL %>" target="_blank" style="text-decoration: none;"> ▶ Play on YouTube</a></p>
-
-        <a href="/songs/<%= song._id %>/edit">Edit this Song</a>
-        <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" style="display:block;">
-        <button type="submit">❌ Delete</button>
-        </form>
-    </div>
-   
+    
 </div>
-    <footer><a href="/songs">Cancel</a></footer>
-</body>
-</html>
+
+    <%- include('../partials/footer.ejs') %>
