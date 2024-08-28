@@ -49,9 +49,10 @@ Juke-ly is built for simplicity and ease of use, making it accessible to everyon
 - ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 - ![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 - ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-- ![YouTube IFrame API](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white) iframe API for embedded video control.
+- ![YouTube IFrame API](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white) - iframe API for video playback.
 - [Animate.style](https://animate.style/) for animations.
 - [UI Verse](https://uiverse.io/) vinyl and profile icon design.
+- [Font Awesome.com](https://fontawesome.com/) media player icons.
 
 
 ## 4. Getting Started
