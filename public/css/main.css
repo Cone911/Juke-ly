@@ -36,7 +36,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vh;
+    height: fit-content;
     font-family: "Summer Favourite", sans-serif;
     font-size: 5vh;
     font-weight: lighter;
@@ -302,6 +302,7 @@ body {
     padding-right: 8%;
     width: 100%;
 }
+
 
   /* ---------------------------- */
   /*    HOME, SIGN UP & LOGIN    */
@@ -837,4 +838,108 @@ iframe {
     opacity: 1;
     scale: 1;
   }
+}
+
+@media (max-width: 800px) {
+
+    .navList .navItem .navLink {
+      display: block;
+      position: relative;
+      text-decoration: none;
+      padding: 0px;
+      color: #fff;
+      text-transform: uppercase;
+      transition: 0.5s;
+      font-family: "Honk", system-ui;
+      font-optical-sizing: auto;
+      font-size: 1.75vh;
+      font-weight: 400;
+      font-style: small;
+      font-variation-settings: "MORF" 15, "SHLN" 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+      border-bottom: none;
+    }
+
+    .jukely-main-container {
+      display: flex;
+      flex-direction: column-reverse; /* Change to column for better layout */
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      height: 150svh;
+      margin-bottom: 5%;
+      padding: 0;
+    }
+
+    .media-controls-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: sticky; /* Changed from fixed to sticky */
+      top: 88px; /* Adjust this value based on your navbar height */
+      height: 10svh; /* Adjust height as needed */
+      width: 100%;
+      z-index: 10; /* Ensure it's above other content */
+      backdrop-filter: blur(6px);
+      border-top: none;
+      border-bottom: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+      border-radius: 0;
+    }
+
+    .mediaPlayer{
+      height: 45svh;
+      width: 80%;
+    }
+
+    .queue-container{
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
+      max-height: 50vh;
+      padding: 0;
+      background-color: rgba(80, 80, 80, 0.55);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.3); 
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+      overflow-y: scroll;
+  }
+
+  .search-container {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    height: 40vh;
+    padding: 1%;
+    background-color: rgba(80, 80, 80, 0.55);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+  }
+
+  .requestItem {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 8px;
+    gap: 12px;
+    font-size: 3vw;
+    line-height: 2vh;
+    width: 100%;
+    border-bottom: dotted 4px palevioletred;
+    background-color: rgba(98, 2, 2, 0.5);
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  
+  .authCard{
+    width: 80%;
+  }
+
 }
