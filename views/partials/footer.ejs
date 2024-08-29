@@ -20,11 +20,9 @@ function extractVideoId(url) {
 
     if (url.includes('youtu.be/')) {
         videoId = url.split('youtu.be/')[1].split('?')[0];
-        console.log('Share URL detected, video ID:', videoId);
     } else if (url.includes('youtube.com/watch')) {
         const parts = url.split('v=');
         videoId = parts[1].split('&')[0];
-        console.log('Watch URL detected, video ID:', videoId);
     }
 
     return videoId;
@@ -32,7 +30,6 @@ function extractVideoId(url) {
 
 function openInIframe(url, cardElement, songId) {
     const videoId = extractVideoId(url);
-    console.log('Extracted Video ID: ', videoId);
 
     if (!isPlayerReady) {
         // Initialize the player only when the user interacts with the page (e.g., clicks play)
@@ -41,7 +38,8 @@ function openInIframe(url, cardElement, songId) {
                 'onReady': () => {
                     onPlayerReady();
                     player.loadVideoById(videoId);  // Load video when player is ready
-                }
+                },
+                'onStateChange': onPlayerStateChange // Add state change event listener
             }
         });
     } else {
@@ -49,7 +47,6 @@ function openInIframe(url, cardElement, songId) {
         player.loadVideoById(videoId);
     }
 
-    // Remove rotation from all vinyls
     const allVinylElements = document.querySelectorAll('.plate');
     allVinylElements.forEach((vinyl) => {
         vinyl.classList.remove('rotation');
@@ -62,7 +59,7 @@ function openInIframe(url, cardElement, songId) {
     vinylElement.classList.add('rotation');
     mediaControls.classList.add('audio-spectrum')
 
-    // Update song in database as played
+    // Update song 'played' property to true.
     fetch(`/songs/${songId}/played`, { method: 'PUT' })
         .then(res => res.json())
         .then(data => console.log("The server said:", data));
@@ -87,7 +84,6 @@ function toggleMute() {
         mediaControls.classList.add('audio-spectrum');
     } else {
         player.mute();
-        console.log("Video muted.");
         
         document.getElementById('mute-button').classList.remove('fa-volume-high');
         document.getElementById('mute-button').classList.add('fa-volume-xmark');
@@ -95,7 +91,16 @@ function toggleMute() {
     }
 }
 
-
+function onPlayerStateChange(event) {
+    // When the playback has 'ENDED', remove the rotation and audio spectrum classes.
+    if (event.data === YT.PlayerState.ENDED) {
+        const rotatingVinyl = document.querySelector('.plate.rotation');
+        if (rotatingVinyl) {
+            rotatingVinyl.classList.remove('rotation');
+        }
+        mediaControls.classList.remove('audio-spectrum');
+    }
+}
 
 </script>
 </html>
