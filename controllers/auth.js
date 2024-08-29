@@ -18,13 +18,12 @@ router.post('/sign-up', async (req, res) => {
     }
     req.body.password = bcrypt.hashSync(req.body.password, 6);
     const user = await User.create(req.body);
-    // "remember" only the user's _id in the session object
     req.session.user = { _id: user._id };
     req.session.save();
   } catch (err) {
     console.log(err);
   }
-  res.redirect('/');
+  res.redirect('/songs');
 });
 
 // POST /auth/login (login user)
