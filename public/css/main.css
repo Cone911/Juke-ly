@@ -314,7 +314,7 @@ body {
         "title title"
         "features logo"
         "button logo";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.90fr;
     justify-content: center;
     background-image: url('https://i.imgur.com/wG8eufY.gif');
     background-color: rgba(255, 255, 255, 0.2);
@@ -345,6 +345,7 @@ body {
       background-color: rgba(43, 43, 43, 0.3);
       backdrop-filter: blur(10px);
       border-radius: 12px;
+      padding: 3%;
   }
 
   .juke-ly-logo-container {
@@ -361,12 +362,14 @@ body {
   }
 
   .juke-ly-logo {
-      width: 35vh;
+      width: 100%;
   }
 
   .featureItem{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    text-align: justify;
     padding: 0;
     margin: 0;
     gap: 5px;
@@ -840,7 +843,7 @@ iframe {
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (orientation: portrait) {
 
   .top-container{
     width: 100vw;
@@ -957,14 +960,13 @@ iframe {
         "title title"
         "features logo"
         "button logo";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     justify-content: center;
     background-image: url('https://i.imgur.com/wG8eufY.gif');
     background-color: rgba(255, 255, 255, 0.2);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position-x: 0px;
-    background-position-y: 100px;
+    background-position: 50% 50%;
     backdrop-filter: blur(5px);
     border-radius: 15px;
     border: 2px solid rgba(255, 255, 255, 0.3); 
@@ -976,9 +978,14 @@ iframe {
   }
   .juke-ly-logo-container {
     grid-area: logo;
+    align-content: center;
     margin: 0;
     padding: 0;
-    width: 25vh;
+    width: 100%
+}
+
+.juke-ly-features p{
+  font-size: 1.5vh;
 }
 
 .get-started-button {
@@ -993,3 +1000,64 @@ iframe {
 }
 
 }
+
+@media screen and (orientation: landscape){
+  body{
+    width: 100svw;
+    height: 100svh;
+    grid-template-rows: auto 1fr auto;
+  }
+  
+  .landingPageCard{
+    background-position:center;
+    background-size: cover;
+    width: 50%
+  }
+  
+  .jukely-main-container{
+    padding-bottom: 1%;
+    padding-top: 2%;
+    grid-template-rows: 0.75fr 0.25fr;
+  }
+
+  .search-container{
+    height: fit-content;
+  }
+
+  .queue-container{
+    max-height: 100vh;
+  }
+
+  .media-controls-container{
+    transform: translateY(0);
+    grid-column: 3;
+    height: 12vh;
+    transform: translateY(-55px)
+  }
+
+  .inputBox > label{
+    font-size: 3vh;
+  }
+
+  .inputBox>input:valid ~ label,
+  .inputBox>input:focus ~ label
+  {
+    color: black;
+    transform: translateX(10px) translateY(-10px);
+    font-size: 2vh;
+    padding: 0 10px;
+    background: white;
+    border-left: 3px double black;
+    border-right: 3px double black;
+    letter-spacing: 0.2em;
+    border-radius: 2px;
+  }
+
+  .requestItem{
+    font-size: 3vh;
+    line-height: 4vmin;
+  }
+
+
+}
+
