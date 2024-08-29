@@ -615,6 +615,7 @@ iframe {
   justify-self: center;
   align-self: start;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   position: relative;
@@ -628,6 +629,47 @@ iframe {
   border: 2px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
 }
+
+.media-controls-first-row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.media-controls-second-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+.volume-slider {
+  width: 15svw;
+  background-color: #ddd;
+  outline: none;
+}
+
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px; 
+  height: 12px;
+  background-color: #8a0007;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.volume-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 8px rgba(170, 248, 0, 0.2);
+}
+
 
 .media-controls-container .media-button {
   color: rgb(255, 255, 255);
@@ -648,7 +690,7 @@ iframe {
 
 .audio-spectrum {
   background-image: url('https://i.imgur.com/2XpwA2g.gif');
-  background-position: 50% 44%;
+  background-position: 50% 50%;
   background-size: cover;
 }
 

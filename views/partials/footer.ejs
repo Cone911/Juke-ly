@@ -105,6 +105,24 @@ function toggleMute() {
     }
 }
 
+function restartVideo() {
+        player.seekTo(0);
+        player.playVideo();  // Start playing the video again
+}
+
+function changeVolume(volume) {
+    if (player && isPlayerReady) {
+        player.setVolume(volume);  // Set the volume (0 to 100)
+    }
+}
+
+document.getElementById('volumeSlider').addEventListener('input', function () {
+    const volume = this.value;
+    changeVolume(volume);
+});
+
+
+
 function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
         const rotatingVinyl = document.querySelector('.plate.rotation');
