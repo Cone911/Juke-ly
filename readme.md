@@ -1,6 +1,6 @@
 # Juke-ly: Collaborative Music Playlist App
 
-![Juke-ly](https://i.imgur.com/rVTEzU3.png)
+![Juke-ly](https://i.imgur.com/x5qNp21.png)
 
 <h1 style="text-align: center;">Juke-ly</h1>
 
@@ -39,7 +39,7 @@ Juke-ly is built for simplicity and ease of use, making it accessible to everyon
 - Media controls for playing, pausing, and muting songs.
 - Responsive design for optimal use on various devices.
 
-![Juke-ly App](https://i.imgur.com/x90BVP8.png)
+![Juke-ly App](https://i.imgur.com/Pdt1GyW.png)
 
 ## 3. Technologies Used and Attributions
 
