@@ -942,4 +942,45 @@ iframe {
     width: 80%;
   }
 
+  .landingPageCard {
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "features logo"
+        "button logo";
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    background-image: url('https://i.imgur.com/wG8eufY.gif');
+    background-color: rgba(255, 255, 255, 0.2);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: 100px;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    padding: 1%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
+    width: 99%;
+    max-width: 99%;
+    overflow: hidden;
+  }
+  .juke-ly-logo-container {
+    grid-area: logo;
+    margin: 0;
+    padding: 0;
+    width: 25vh;
+}
+
+.get-started-button {
+  grid-area: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.get-started-button button{
+  font-size: 2vh;
+}
+
 }
