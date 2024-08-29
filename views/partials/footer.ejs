@@ -92,7 +92,6 @@ function toggleMute() {
 }
 
 function onPlayerStateChange(event) {
-    // When the playback has 'ENDED', remove the rotation and audio spectrum classes.
     if (event.data === YT.PlayerState.ENDED) {
         const rotatingVinyl = document.querySelector('.plate.rotation');
         if (rotatingVinyl) {
