@@ -842,6 +842,15 @@ iframe {
 
 @media (max-width: 800px) {
 
+  .top-container{
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  h1.logo{
+    font-size: 2vh;
+  }
+
     .navList .navItem .navLink {
       display: block;
       position: relative;
