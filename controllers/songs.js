@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../middleware/ensureLoggedIn.js');
 
 // Paths start with /songs
 
-// View all requestes functionality.
+// View all requests functionality.
 router.get('/', async (req, res) => {
         const allSongs = await Song.find({}).populate('user', 'name');
         res.render('songs/index.ejs', { songs: allSongs, user: req.user });
@@ -103,7 +103,8 @@ router.get('/:songId', ensureLoggedIn, async (req, res) => {
 router.delete('/:songId', ensureLoggedIn, async (req, res) => {
     try {
         const song = await Song.findById(req.params.songId);
-        if (song.user.equals(req.user._id)) {  // Verifying if the user owns this song.
+        // Verifying if the user owns this song.
+        if (song.user.equals(req.user._id)) {  
             await Song.findByIdAndDelete(req.params.songId);
             res.redirect('/songs');
         } else {
