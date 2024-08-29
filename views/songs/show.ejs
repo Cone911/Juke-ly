@@ -2,18 +2,21 @@
 <div class="main-container">
     <div class="cardShow animate__animated animate__flipInY">
         <div class="songInfo">
+            <div class="show-card-icon">
+                <%- include('../partials/recordIconSpinning.ejs') %>
+            </div>
             <h2><%= song.title %></h2>
             <p>by <%= song.artist %></p>
         </div>
         <div class="songActions">
-            <p><a href="<%= song.youTubeURL %>" target="_blank" style="text-decoration: none;"> ▶ Play on YouTube</a></p>
+            <a href="<%= song.youTubeURL %>" target="_blank" style="text-decoration: none;"> <i class="fa-brands fa-youtube" style="color: #FFD43B;"></i> Play on YouTube</a>
 
-            <a href="/songs/<%= song._id %>/edit">Edit this Song</a>
+            <a href="/songs/<%= song._id %>/edit"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i> Edit this Song</a>
             <form action="/songs/<%= song._id %>?_method=DELETE" method="POST" style="display:block;">
-            <button type="submit">❌ Delete</button>
+            <button type="submit"><i class="fa-solid fa-trash" style="color: #FFD43B;"></i> Delete</button>
             </form>
+            <a href="/songs"><i class="fa-solid fa-rotate-left" style="color: #FFD43B;"></i> Go Back</a>
         </div>
-        <a href="/songs">Cancel</a>
     </div>
     
 </div>

@@ -2,27 +2,32 @@
 <div class="main-container">
     <div class="authCard animate__animated animate__flipInY">
         <h1>Edit</h1>    
-        <form action="/songs/<%= song._id %>?_method=PUT" method="POST">
-            <div class="inputBox">
-                <input type="text" id="title" name="title" value="<%= song.title %>" required>
-                <label for="title">Song Title:</label>
-            </div>
-            
-            <div class="inputBox">
-                <input type="text" id="artist" name="artist" value="<%= song.artist %>" required>
-                <label for="artist">Artist:</label>
+        <form id="edit-form" action="/songs/<%= song._id %>?_method=PUT" method="POST">
+            <fieldset>
+                <legend>SONG INFORMATION</legend>
+                <br>
+                <div class="inputBox">
+                    <input type="text" id="title" name="title" value="<%= song.title %>" required>
+                    <label for="title">Song Title:</label>
+                </div>
+                
+                <div class="inputBox">
+                    <input type="text" id="artist" name="artist" value="<%= song.artist %>" required>
+                    <label for="artist">Artist:</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="url" id="youTubeURL" name="youTubeURL" value="<%= song.youTubeURL %>" required>
+                    <label for="youTubeURL">YouTubeURL:</label>
+                </div>
+            </fieldset>
+
+            <div class="button-container">
+                <button for="edit-form" type="submit"><i class="fa-solid fa-pencil" style="color: #FFD43B;"></i> Update Song</button>
             </div>
 
-            <div class="inputBox">
-                <input type="url" id="youTubeURL" name="youTubeURL" value="<%= song.youTubeURL %>" required>
-                <label for="youTubeURL">YouTubeURL:</label>
-            </div>
-
-            <div>
-                <button type="submit">Update Song</button>
-            </div>
         </form>
-        <a class="backLink" style="font-size: 1.5vh;" href="/songs/<%= song._id %>">Cancel</a>
+        <a class="backLink" style="font-size: 1.5vh;" href="/songs/<%= song._id %>"><i class="fa-solid fa-rotate-left" style="color: #FFD43B;"></i> Cancel</a>
     </div>
 </div>
 

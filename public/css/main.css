@@ -615,34 +615,49 @@ iframe {
  .cardShow{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  border: 1px solid rgba(142, 142, 142, 0.3); 
+  border: 2px solid rgba(142, 142, 142, 0.3); 
   padding: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
-  width: 45%;
+  width: 65%;
+  height: 35%;
+  max-width: 850px;
+}
+
+.show-card-icon{
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
   .songInfo{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  width: 1fr;
+  align-items: center;
+  width: 100%;
   border-right: 12px dashed #ffcc00;
-  padding-right: 20px;
+  }
+
+  .songInfo > h2 {
+    font-size: 4vh;
   }
 
   .songActions{
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 1fr;
+    font-family: "Cocogoose", sans-serif;
+    font-size: 2vh;
+    row-gap: 5%;
+    width: 100%;
   }
+
 
   .backLink{
     text-align: center;
@@ -774,8 +789,8 @@ iframe {
 
 @keyframes appear {
   from {
-    opacity: 0;
-    scale: 0.5;
+    opacity: 0.20;
+    scale: 0.60;
   }
   to {
     opacity: 1;
