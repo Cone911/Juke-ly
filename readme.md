@@ -35,9 +35,9 @@ Juke-ly is built for simplicity and ease of use, making it accessible to everyon
 - User authentication for personalized song management.
 - Collaborative music playlist with song requests.
 - Embedded YouTube player for seamless song playback.
-- Songs played are automatically updated as 'played'.
+- Songs played are automatically updated as 'played' in the database for session persistance.
 - Media controls for playing, pausing, and muting songs.
-- Responsive design for optimal use on various devices.
+- Responsive design makes the app accessible on mobile devices.
 
 ![Juke-ly App](https://i.imgur.com/Pdt1GyW.png)
 
@@ -74,7 +74,7 @@ Juke-ly is built for simplicity and ease of use, making it accessible to everyon
 5. **Reset Played Status**: Use the "Reset Played" button to reset all songs in the queue to their default state.
 
 ## 6. Future Improvements
-- [ ] Implement a more advanced search functionality with the YouTube API.
+- [ ] Implement a more advanced search functionality with the YouTube search API.
 - [ ] Allow users to create their own private "rooms", protected by a passcode.
 - [ ] Integrate a voting system for songs in the queue.
 
