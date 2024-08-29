@@ -4,10 +4,11 @@
   <script src="https://kit.fontawesome.com/c74386571e.js" crossorigin="anonymous"></script>
   <script>
 
-  //YouTube API Integration.
 
-  let player;
+let player;
 let isPlayerReady = false;
+
+const mediaControls = document.querySelector('.media-controls-container');
 
 function onPlayerReady(event) {
     console.log('YouTube Player is ready.');
@@ -59,6 +60,7 @@ function openInIframe(url, cardElement, songId) {
     const vinylElement = requestItemElement.querySelector('.plate');
     requestItemElement.classList.add('played');
     vinylElement.classList.add('rotation');
+    mediaControls.classList.add('audio-spectrum')
 
     // Update song in database as played
     fetch(`/songs/${songId}/played`, { method: 'PUT' })
@@ -68,10 +70,12 @@ function openInIframe(url, cardElement, songId) {
 
 function playVideo() {
     player.playVideo();
+    mediaControls.classList.add('audio-spectrum');
 }
 
 function pauseVideo() {
     player.pauseVideo();
+    mediaControls.classList.remove('audio-spectrum');
 }
 
 function toggleMute() {
@@ -80,12 +84,14 @@ function toggleMute() {
     
         document.getElementById('mute-button').classList.remove('fa-volume-xmark');
         document.getElementById('mute-button').classList.add('fa-volume-high');
+        mediaControls.classList.add('audio-spectrum');
     } else {
         player.mute();
         console.log("Video muted.");
         
         document.getElementById('mute-button').classList.remove('fa-volume-high');
         document.getElementById('mute-button').classList.add('fa-volume-xmark');
+        mediaControls.classList.remove('audio-spectrum');
     }
 }
 

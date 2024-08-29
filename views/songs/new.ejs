@@ -2,35 +2,36 @@
 
 <div class="main-container">
     <div class="authCard animate__animated animate__flipInY">
-        <h1>Add a New Song to the Queue</h1>
-        
-        <!-- Form for adding a new song -->
-        <form class="Form" action="/songs" method="POST">
-            <fieldset>
-                <legend><em>YOUR REQUEST:</em></legend>
-                <div class="inputBox">
-                    <input type="text" id="title" name="title" size="30" required>
-                    <label for="title">Song Title:</label>
-                </div>
-                
-                <div class="inputBox">
-                    <input type="text" id="artist" name="artist" size="30" required>
-                    <label for="artist">Artist:</label>
-                </div>
-                
-                <div class="inputBox">
-                    <input type="url" id="youTubeURL" name="youTubeURL" size="30" required>
-                    <label for="youTubeURL">YouTube URL:</label>
-                </div>
-            </fieldset>
-                
-            <div>
-                <button type="submit">Add Song</button>
-            </div>
-                
-        </form>
+        <div>
+            <h1>Add a Song</h1>
+        </div>
+            <form class="Form" id="request-card" action="/songs" method="POST">
+                <fieldset>
+                    <legend><em>YOUR REQUEST:</em></legend>
+                    <div class="inputBox">
+                        <input type="text" id="title" name="title" size="30" required>
+                        <label for="title">Song Title:</label>
+                    </div>
+                    
+                    <div class="inputBox">
+                        <input type="text" id="artist" name="artist" size="30" required>
+                        <label for="artist">Artist:</label>
+                    </div>
+                    
+                    <div class="inputBox">
+                        <input type="url" id="youTubeURL" name="youTubeURL" size="30" required>
+                        <label for="youTubeURL">YouTube URL:</label>
+                    </div>
+                </fieldset>
+            </form>
+        <div class="button-container">
+            <button type="submit" form="request-card"><i class="fa-solid fa-plus fa-beat-fade" style="--fa-animation-iteration-count: 5;"></i> Add</button>
+        </div>
+        <div class="action-links">
+            <a href="/songs"><i class="fa-solid fa-rotate-left"></i> Cancel</a>
+        </div>
     </div>
 </div> 
-    <a href="/">Back to Home</a>
+    
 
 <%- include('../partials/footer.ejs') %>

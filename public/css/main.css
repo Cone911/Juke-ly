@@ -74,7 +74,7 @@ body {
   }
 
   i {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.85);
   }
 
   button {
@@ -93,7 +93,6 @@ body {
     box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 8px #00ffcc, 0 0 10px #00ffcc;
     font-family: "Summer Favourite", system-ui;
     font-size: 3vh;
-    margin-top: 12px;
   }
   
   button:hover {
@@ -166,6 +165,7 @@ body {
   
   .navbar .navList {
     display:flex;
+    align-items: center;
     margin:0;
     padding:0;
   }
@@ -175,6 +175,8 @@ body {
     margin:0 20px;
     transition:0.5s;
     text-align: center;
+    display: flex;
+    align-items: center;
   }
   
   .navList .navItem .navLink{
@@ -250,11 +252,11 @@ body {
   .jukely-main-container {
     display: grid;
     grid-template-columns: 0.75fr 1.25fr 0.75fr;
-    grid-template-rows: auto auto; /* Two rows: first for the three main divs, second for the controls */
+    grid-template-rows: auto auto;
     column-gap: 10px;
     row-gap: 0;
     padding-top: 3%;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
     padding-left: 8%;
     padding-right: 8%;
     width: 100%;
@@ -348,15 +350,22 @@ body {
     overflow: hidden;
   }
 
+  fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .inputBox{
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 60%;
   }
 
   .inputBox > input{
     height: 3.25vh;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: inset -3px -3px 3px rgba(0, 0, 0, 0.3),
     inset 3px 3px 2px rgba(0, 0, 0, 0.6);
@@ -366,7 +375,7 @@ body {
 
   .inputBox > label{
     position: absolute;
-    left: 8%;
+    left: 23%;
     padding: 12px;
     pointer-events: none;
     font-size: 1.2em;
@@ -393,42 +402,48 @@ body {
   /* --------------- */
 
   .search-container {
-    grid-column: 1; /* First column */
-    grid-row: 1; /* First row */
-    justify-self:flex-end;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
     height: 40vh;
     padding: 1%;
     background-color: rgba(80, 80, 80, 0.55);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     border-radius: 15px;
     border: 2px solid rgba(255, 255, 255, 0.3); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.85);
  }
 
  .message{
-  padding: 15px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
  }
 
  .button-container{
   display: flex;
   justify-content: center;
-  padding-top: 4%;
-  height: 10vh;
+  align-items: flex-end;
+  height: 6vh;
  }
-
 
   /* -------------- */
   /*   QUEUE CARD   */
   /* -------------- */
 
  .queue-container{
-    grid-column: 2; /* Second column */
-    grid-row: 1; /* First row */
+    grid-column: 2;
+    grid-row: 1;
     justify-self: center;
     width: 80%;
-    max-height: 60vh;
+    max-height: 62vh;
     padding: 0;
     background-color: rgba(80, 80, 80, 0.55);
     backdrop-filter: blur(5px);
@@ -482,18 +497,22 @@ body {
 
  .action-links {
   display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
   margin-bottom: 12px;
   padding-left: 5px;
   padding-right: 5px;
+  padding-bottom: 10px;
+  font-size: 2vh;
 }
 
 .resetLink {
+  font-family: "Cocogoose", sans-serif;
+  font-size: 2vh;
   background: none;
   border: none;
   color: #ffcc00;
-  font-size: 1.2em;
   cursor: pointer;
   text-decoration: none;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.85);
@@ -553,8 +572,7 @@ iframe {
   position: relative;
   width: 80%;
   height: 100%;
-  position: sticky;
-  transform: translateY(-50px);
+  transform: translateY(-55px);
   z-index: 10;
   background-color: rgba(80, 80, 80, 0.55);
   backdrop-filter: blur(2px);
@@ -570,7 +588,6 @@ iframe {
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.85);
 }
 
-/* Hover effect with neon glow */
 .media-controls-container .media-button:hover {
   color: gold;
   text-shadow: 
@@ -581,6 +598,11 @@ iframe {
       0 0 40px purple;
 }
 
+.audio-spectrum {
+  background-image: url('https://i.imgur.com/2XpwA2g.gif');
+  background-position: 50% 44%;
+  background-size: cover;
+}
 
 
   /* -------------- */

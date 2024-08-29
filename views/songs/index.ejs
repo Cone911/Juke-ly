@@ -8,34 +8,39 @@
             <h1>ADD A SONG</h1>
         </div>
             <% if (user) { %>
-                <form class="Form" action="/songs" method="POST">
-                    <fieldset>
-                        <legend><em>ADD YOUR REQUEST:</em></legend>
-                        <div class="inputBox">
-                            <input type="text" id="title" name="title" size="30" required>
-                            <label for="title">Song Title:</label>
-                        </div>
-                        
-                        <div class="inputBox">
-                            <input type="text" id="artist" name="artist" size="30" required>
-                            <label for="artist">Artist:</label>
-                        </div>
-                    
-                        <div class="inputBox">
-                            <input type="url" id="youTubeURL" name="youTubeURL" size="30" required
-                            pattern="https?://(youtu\.be/|www\.youtube\.com/watch\?v=).*" 
-                            title="Please enter a valid YouTube URL">
-                            <label for="youTubeURL">YouTube URL:</label>
-                        </div>
-                    </fieldset>
-                        
-                    <div class="button-container">
-                        <button type="submit">Add Song</button>
+        <div>
+            <form class="Form" id="add-song" action="/songs" method="POST">
+                <fieldset>
+                    <legend><em>ADD YOUR REQUEST:</em></legend>
+                    <div class="inputBox">
+                        <input type="text" id="title" name="title" size="30" required>
+                        <label for="title">Song Title:</label>
                     </div>
+                    
+                    <div class="inputBox">
+                        <input type="text" id="artist" name="artist" size="30" required>
+                        <label for="artist">Artist:</label>
+                    </div>
+                
+                    <div class="inputBox">
+                        <input type="url" id="youTubeURL" name="youTubeURL" size="30" required
+                        pattern="https?://(youtu\.be/|www\.youtube\.com/watch\?v=).*" 
+                        title="Please enter a valid YouTube URL">
+                        <label for="youTubeURL">YouTube URL:</label>
+                    </div>
+                </fieldset>                
                 </form>
+        </div>        
+        <div class="button-container">
+            <button type="submit" form="add-song"><i class="fa-solid fa-plus fa-shake" style="--fa-animation-iteration-count: 5;" ></i> Add</button>
+        </div>
         <% } else { %>
             <div class="message">
-                <p>Please <a href="/auth/login">log in</a> or <a href="/auth/sign-up">sign up</a> to add a song to the queue.</p>
+                <p style="text-align: justify;">Please
+                <a href="/auth/login">
+                <i class="fa-solid fa-arrow-right-to-bracket fa-beat-fade fa-xs" style="color: #fdff83; vertical-align: 2px; --fa-animation-iteration-count: 25;"></i> log in</a> or 
+                <a href="/auth/sign-up"><i class="fa-solid fa-square-caret-up fa-beat-fade fa-xs" style="color: #f8e671; vertical-align: 1px; --fa-animation-iteration-count: 25;"></i> sign up</a>
+                 to queue a song.</p>
             </div>
         <% } %>
     </div>
@@ -79,7 +84,7 @@
         </div>        
         <% } %>
         <div class="action-links">
-            <a class="backLink" href="/songs/new" style="text-decoration: none;">➕ Request a New Song</a>
+            <a class="backLink" href="/songs/new" style="text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Add a Song</a>
             <form action="/songs/reset-played?_method=PUT" method="POST" style="display:inline;">
                 <button type="submit" class="resetLink">🏳 Reset Played</button>
             </form>
