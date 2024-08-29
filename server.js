@@ -31,9 +31,7 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// Require the middleware that adds the user doc to the req & the res.locals objects
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals');
-// Be sure to mount after the session middleware above
 app.use(addUserToReqAndLocals);
 
 // --------------------
@@ -52,11 +50,7 @@ app.get('/', async (req, res) => {
 
 app.use('/songs', songsController); 
 
-
-// Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
-// An alternative to above
-// const port = process.env.PORT || "3000";
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
