@@ -580,13 +580,14 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-size: 1.75vmin;
+  font-size: 1.5svh;
   margin: 0;
   padding-right: 2%;
 }
 
 .filter-dropdown {
-  padding: 8px;
+  font-size: 1.5svh;
+  padding: 4px;
   border: 2px solid #00ffcc;
   border-radius: 5px;
   background-color: #29272d;
@@ -1154,6 +1155,10 @@ iframe {
     background-size: cover;
     width: 50%
   }
+
+  .featureItem p{
+    font-size: 1.5vw;
+  }
   
   .jukely-main-container{
     padding-bottom: 1%;
@@ -1167,6 +1172,14 @@ iframe {
 
   .queue-container{
     max-height: 100vh;
+  }
+
+  .filter-container {
+    font-size: 1.25svw;
+  }
+
+  .filter-dropdown {
+    font-size: 1.25svw;
   }
 
   .media-controls-container{
