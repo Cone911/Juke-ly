@@ -49,6 +49,16 @@
     <div class="queue-container animate__animated animate__flipInY">
         <div class="queue-title">
             <h1>QUEUE</h1>
+            <div class="filter-container" style="align-items: center;">
+                <form action="/songs" method="get">
+                    <label for="filter">Filter:</label>
+                    <select class="filter-dropdown" name="filter" id="filter" onchange="this.form.submit()">
+                        <option value="all" <%= filter === 'all' ? 'selected' : '' %>>All Songs</option>
+                        <option value="unplayed" <%= filter === 'unplayed' ? 'selected' : '' %>>Unplayed</option>
+                        <option value="played" <%= filter === 'played' ? 'selected' : '' %>>Played</option>
+                    </select>
+                </form>
+            </div>
         </div>
         <% if (songs.length === 0) { %>
             <h1>There are no songs in the queue.</h1>

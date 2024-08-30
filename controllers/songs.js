@@ -5,10 +5,19 @@ const ensureLoggedIn = require('../middleware/ensureLoggedIn.js');
 
 // Paths start with /songs
 
-// View all requests functionality.
+// View all requests functionality with filtering.
 router.get('/', async (req, res) => {
-        const allSongs = await Song.find({}).populate('user', 'name');
-        res.render('songs/index.ejs', { songs: allSongs, user: req.user });
+    const filter = req.query.filter || 'all'; // Default filter is 'all' songs.
+
+    let filterCondition = {};
+    if (filter === 'unplayed') {
+        filterCondition = { played: false };
+    } else if (filter === 'played') {
+        filterCondition = { played: true };
+    }
+
+    const allSongs = await Song.find(filterCondition).populate('user', 'name');
+    res.render('songs/index.ejs', { songs: allSongs, user: req.user, filter });
 });
 
 // Return view (form) to add a new song request.

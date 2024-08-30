@@ -46,6 +46,8 @@ body {
     background-color: rgba(98, 2, 2, 0.756);
     mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 20%, #ffffff 80%, rgba(255, 255, 255, 0) 100%);
     z-index: 100;
+    margin: 0;
+    padding: 0;
   }
 
   h2 {
@@ -506,6 +508,8 @@ body {
   margin: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
 }
 
   .request-card{
@@ -571,6 +575,41 @@ body {
   color: #ffffff;
   text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
+
+.filter-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.75vmin;
+  margin: 0;
+  padding-right: 2%;
+}
+
+.filter-dropdown {
+  padding: 8px;
+  border: 2px solid #00ffcc;
+  border-radius: 5px;
+  background-color: #29272d;
+  color: #fff;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  width: fit-content;
+  font-family: 'Cocogoose';
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-dropdown:hover {
+  background-color: #4c3b1f; 
+  border-color: gold;
+}
+
+.filter-dropdown:focus {
+  box-shadow: 0 0 5px rgba(0, 255, 204, 0.6);
+  border-color: #00ffcc;
+}
+
 
 
   /* --------------------- */
