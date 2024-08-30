@@ -77,6 +77,18 @@ function openInIframe(url, cardElement, songId) {
     fetch(`/songs/${songId}/played`, { method: 'PUT' })
         .then(res => res.json())
         .then(data => console.log("The server said:", data));
+    
+    updateSongInfo(songId);
+}
+
+function updateSongInfo(songId) {
+    const songTitle = document.getElementById(`title-${songId}`).textContent || 'Unknown Title';
+    const songArtist = document.getElementById(`artist-${songId}`).textContent || 'Unknown Artist';
+    const songRequester = document.getElementById(`user-${songId}`).textContent || 'Unknown';
+
+    document.getElementById('songTitle').innerHTML = `Title: <span style="color: rgb(205, 205, 205);">${songTitle}</span>`;
+    document.getElementById('songArtist').innerHTML = `Artist: <span style="color: rgb(205, 205, 205);">${songArtist}</span>`;
+    document.getElementById('songRequester').innerHTML = `Requested by: <span style="color: rgb(205, 205, 205);">${songRequester}</span>`;
 }
 
 function playVideo() {
@@ -112,7 +124,7 @@ function restartVideo() {
 
 function changeVolume(volume) {
     if (player && isPlayerReady) {
-        player.setVolume(volume);  // Set the volume (0 to 100)
+        player.setVolume(volume);
     }
 }
 

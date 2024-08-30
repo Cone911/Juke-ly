@@ -70,14 +70,19 @@
                         <div class="songInformation">
 
                         <% if (song.user && user && song.user._id.equals(user._id)) { %> 
-                            <a style="display: block; text-align: left;" href="/songs/<%= song._id %>"><%= song.title %></a>
+                            <a style="display: block; text-align: left;" href="/songs/<%= song._id %>"><span id="title-<%= song._id %>"><%= song.title %></span></a>
                         <% } else { %>
-                            <span style="display: block; text-align: left;""><%= song.title %></span>
+                            <span style="display: block; text-align: left;""><span id="title-<%= song._id %>"><%= song.title %></span></span>
                         <% } %>
 
-                         <span style="display: block; text-align: left;"">by: <%= song.artist %></span>
+                        <span style="display: block; text-align: left;""> 
+                            by: <span id="artist-<%= song._id %>" style="color: rgb(205, 205, 205);"><%= song.artist %></span> 
+                        </span>
 
-                         <span style="display: block; text-align: left;""><em>Requested by: <%= song.user ? song.user.name : 'Deleted User' %></em></span> 
+                         <span style="display: block; text-align: left;"">
+                            <em>Requested by: <span id="user-<%= song._id %>" style="color: rgb(205, 205, 205);"><%= song.user ? song.user.name : 'Deleted User' %> </span> </em>
+                        </span> 
+                        
                         <a href="#" onclick="openInIframe('<%= song.youTubeURL %>', this, '<%= song._id %>')">▶ Play</a> &nbsp; | &nbsp;
             
                         <% if (song.user && user && song.user._id.equals(user._id)) { %>
@@ -88,9 +93,7 @@
 
                         </div>
                     </div>    
-                    <!-- </li> -->
                 <% }) %>
-            <!-- </ul> -->
         </div>        
         <% } %>
         <div class="action-links">
@@ -101,11 +104,17 @@
         </div>        
     </div>
 
-    <!-- Third Div: Media Player -->
-    <div class="mediaPlayer animate__animated animate__fadeInLeft">
-        <h1>NOW PLAYING</h1>
-        <!-- <iframe id="videoPlayer"></iframe> -->
-        <div id="videoPlayer"></div>
+    <!-- Third Div: Media Player Container -->
+    <div class="media-player-container">
+        <div class="mediaPlayer animate__animated animate__fadeInLeft">
+            <h1>NOW PLAYING</h1>
+            <div id="videoPlayer"></div>
+        </div>
+        <div class="song-info-banner animate__animated animate__fadeInLeft">
+            <p id="songTitle">Title: </p>
+            <p id="songArtist">Artist: </p>
+            <p id="songRequester">Requested by: </p>
+        </div>
     </div>
 
     <!-- Fourth Div: Media Controls -->
