@@ -297,7 +297,7 @@ body {
     column-gap: 10px;
     row-gap: 0;
     padding-top: 3%;
-    padding-bottom: 3%;
+    padding-bottom: 2%;
     padding-left: 8%;
     padding-right: 8%;
     width: 100%;
@@ -316,12 +316,13 @@ body {
         "button logo";
     grid-template-columns: 1.1fr 0.90fr;
     justify-content: center;
-    background-image: url('https://i.imgur.com/wG8eufY.gif');
+    background-image: url('/assets/Home-Spectrum-Background.gif');
     background-color: rgba(255, 255, 255, 0.2);
     background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
     background-position-x: 0px;
-    background-position-y: 100px;
+    background-position-y: 0px;
     backdrop-filter: blur(5px);
     border-radius: 15px;
     border: 2px solid rgba(255, 255, 255, 0.3); 
@@ -593,6 +594,21 @@ body {
   margin: 0;
 }
 
+.mediaPlayer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/Now-Playing-Background.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -1;
+}
+
 #videoPlayer {
   position: absolute;
   width: 100%;
@@ -621,7 +637,7 @@ iframe {
   position: relative;
   width: 80%;
   height: 100%;
-  transform: translateY(-15px);
+  transform: translateY(0px);
   z-index: 10;
   background-color: rgba(80, 80, 80, 0.55);
   backdrop-filter: blur(2px);
@@ -650,7 +666,6 @@ iframe {
 .volume-slider {
   width: 15svw;
   background-color: #ddd;
-  outline: none;
 }
 
 
@@ -681,17 +696,21 @@ iframe {
 .media-controls-container .media-button:hover {
   color: gold;
   text-shadow: 
-      0 0 2.5px purple,  
-      0 0 5px purple, 
-      0 0 10px purple,
-      0 0 20px purple, 
-      0 0 40px purple;
+      0 0 5px purple,  
+      0 0 10px purple, 
+      0 0 15px purple,
+      0 0 30px purple, 
+      0 0 45px purple;
 }
 
 .audio-spectrum {
-  background-image: url('https://i.imgur.com/2XpwA2g.gif');
+  background: 
+    linear-gradient(rgba(80,80,80,0.5), 
+    rgba(80,80,80,0.5)),
+    url('/assets/Media-Player-Spectrum.gif');
   background-position: 50% 50%;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -916,7 +935,7 @@ iframe {
 
     .jukely-main-container {
       display: flex;
-      flex-direction: column-reverse; /* Change to column for better layout */
+      flex-direction: column-reverse;
       justify-content: center;
       align-items: center;
       gap: 32px;
@@ -929,11 +948,11 @@ iframe {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      position: sticky; /* Changed from fixed to sticky */
-      top: 88px; /* Adjust this value based on your navbar height */
-      height: 10svh; /* Adjust height as needed */
+      position: sticky;
+      top: 88px;
+      height: 10svh;
       width: 100%;
-      z-index: 10; /* Ensure it's above other content */
+      z-index: 10;
       backdrop-filter: blur(6px);
       border-top: none;
       border-bottom: 5px solid rgba(255, 255, 255, 0.3);
